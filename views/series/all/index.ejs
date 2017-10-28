@@ -1,0 +1,49 @@
+<% include ../../partials/header %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="form-group" action="/series/all/delete?_method=DELETE" method="POST">
+        <div class="row">
+          <div class="col-xs-6">
+            <a class="btn btn-md btn-danger" href="/series">Return</a>
+          </div>
+          <div class="col-xs-6">
+            <div class="text-right">
+              <button class="btn btn-md btn-danger">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="information">
+            <div class="col-xs-3">Bot</div>
+            <div class="col-xs-6">Series Title</div>
+            <div class="col-xs-2">Current</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <% allSeries.forEach(function(series) { %>
+              <div class="item">
+                <div class="row">
+                  <div class="col-xs-3"><%= series.bot %></div>
+                  <div class="col-xs-6"><%= series.name %></div>
+                  <div class="col-xs-2"><%= series.current %></div>
+                  <div class="form-check form-check-inline">
+                    <input class="col-xs-1 form-check-input" name="delete" type="checkbox" value="<%= series._id %>" />
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<% include ../../partials/footer %>
