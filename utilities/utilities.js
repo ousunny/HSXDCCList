@@ -56,7 +56,7 @@ function filterAndSave(series, episodes) {
   }
 
   // Regex to identify episodes that contain preferred bot name, episode, and quality
-  var regexEpisode = new RegExp("(" + botNameTruncated + ").+" + series.name + ".+" + regexCurrentEpisode);
+  var regexEpisode = new RegExp("(" + botNameTruncated + ").+[" + series.name + "&.()\-].+" + regexCurrentEpisode);
 
   // Filter for episodes that fulfill requirements
   for (var i = 0; i < episodes.length; i++) {
