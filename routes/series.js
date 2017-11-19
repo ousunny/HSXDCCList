@@ -57,6 +57,13 @@ router.get("/check", middleware.isLoggedIn, function(req, res) {
 
 // CREATE
 router.post("/", middleware.isLoggedIn, function(req, res) {
+  // Check if series name is empty
+  var seriesNameTrimmed = req.body.series.name.trim();
+  if (seriesNameTrimmed.length == 0) {
+    res.redirect("/series/new");
+    return;
+  }
+
   // Create a user object to use for series
   var user = {
     id: req.user._id,
