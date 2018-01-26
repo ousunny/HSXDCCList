@@ -49,7 +49,7 @@ router.get("/check", middleware.isLoggedIn, function(req, res) {
         utilities.saveEpisodes(user.series);
         setTimeout(function() {
           res.redirect("/series")
-        }, 6000);
+        }, 10000);
       }
     }
   });

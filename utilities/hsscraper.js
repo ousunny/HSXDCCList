@@ -86,7 +86,7 @@ function searchForSeries(series, callback) {
           instance.exit();
           callback(episodes);
         });
-      }, 2000);
+      }, 5000);
     })();
 }
 
