@@ -55,6 +55,10 @@ function filterAndSave(series, episodes) {
     regexCurrentEpisode = "(0*[" + series.current[0] + "-9][" + series.current[1] + "-9])";
   }
 
+  // If bot is not CR replace
+  if (!botNameTruncated)
+    botNameTruncated = series.bot.substring(0, series.bot.length - (series.bot.length - series.bot.indexOf("-")));
+
   // Regex to identify episodes that contain preferred bot name, episode, and quality
   var regexEpisode = new RegExp("(" + botNameTruncated + ").+[" + series.name + "&.()\-].+" + regexCurrentEpisode);
 
@@ -124,7 +128,7 @@ function getAllPackagesForDL(allAvailable) {
 function createEpisode(series, text) {
   // Breakdown string into required parts
   var title = (text.substring(text.indexOf("] ")+2, text.lastIndexOf(" -")));
-  var episode = (text.substring(text.indexOf("- ")+1, text.lastIndexOf(" [")));
+  var episode = (text.substring(text.lastIndexOf(" - ")+3, text.lastIndexOf(" [")));
   var pack = (text.substring(text.indexOf("\t")+1, text.lastIndexOf("\t")).split("\t"))[0];
   var group = (text.substring(text.indexOf("[")+1, text.indexOf("]")));
   var bot = (text.substring(0, text.indexOf("\t")));
