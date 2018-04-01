@@ -10,6 +10,7 @@
         <% allSeries.forEach(function(series) { %>
           <li>
             <p><%= series.bot %></p>
+            <p><%= series.group %></p>
             <p><%= series.name %></p>
             <p><%= series.current %></p>
             <a href="/series/all/check/<%= series._id %>">Update</a>

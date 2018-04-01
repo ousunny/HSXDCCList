@@ -55,6 +55,33 @@ form {
   display: flex;
 }
 
+.content-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-list > li {
+  width: 80%;
+  margin: 5px;
+  background-color: #efefef;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.content-list > li > * {
+  flex-basis: 20%;
+  padding: 5px;
+}
+
+.content-list > li > input[type="checkbox"] {
+  flex-basis: 15%;
+  transform: scale(1.5);
+}
+
 /* Header */
 
 header {
@@ -82,31 +109,6 @@ header > nav > li {
 }
 
 .actions > input[type="checkbox"] {
-  transform: scale(1.5);
-}
-
-.content-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content-list > li {
-  width: 80%;
-  margin: 5px;
-  background-color: #efefef;
-  font-size: 18px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-}
-
-.content-list > li > * {
-  flex-basis: 20%;
-}
-
-.content-list > li > input[type="checkbox"] {
   transform: scale(1.5);
 }
 
