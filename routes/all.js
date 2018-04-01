@@ -7,6 +7,9 @@ var User                    = require("../models/user"),
     Series                  = require("../models/series"),
     Episode                 = require("../models/episode");
 
+// Utilities
+var utilities               = require("../utilities/utilities");
+
 // Middleware
 var middleware              = require("../middleware");
 
@@ -22,9 +25,22 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
   });
 });
 
+// Check for update
+router.get("/check/:seriesId", middleware.isLoggedIn, function(req, res) {
+  var seriesId = req.params.seriesId;
+  // Search for series using id
+  Series.findById({_id: seriesId}, function(error, series) {
+    // Check for new episodes, if episodes exist; save it
+    utilities.saveEpisodes([series]);
+    setTimeout(function() {
+      res.redirect("/series/all");
+    }, 5000);
+  });
+});
+
 // DELETE
 router.delete("/delete", middleware.isLoggedIn, function(req, res) {
-  var seriesIds = req.body.delete;
+  var seriesIds = req.body.check;
   // Check if any series has been selected for removal
   if (seriesIds) {
     // If only a single series was selected, turn the series into a list

@@ -5,14 +5,15 @@
     <ul class="content-list">
       <div class="actions">
         <a class="btn btn-return" href="/series">Return</a>
-        <button class="btn btn-confirm">Clear</button>
+        <button class="btn btn-return">Clear</button>
       </div>
         <% allSeries.forEach(function(series) { %>
           <li>
             <p><%= series.bot %></p>
             <p><%= series.name %></p>
             <p><%= series.current %></p>
-            <input name="delete" type="checkbox" value="<%= series._id %>" />
+            <a href="/series/all/check/<%= series._id %>">Update</a>
+            <input name="check" type="checkbox" value="<%= series._id %>" />
           </li>
         <% }); %>
       </ul>

@@ -112,13 +112,13 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 // DELETE
 router.delete("/packs/delete", middleware.isLoggedIn, function(req, res) {
   // Check if any packs have been selected for removal
-  if (req.body.delete) {
+  if (req.body.check) {
     // If only a single pack was selected, turn the pack into a list
-    if (!Array.isArray(req.body.delete)) {
-      req.body.delete = [req.body.delete];
+    if (!Array.isArray(req.body.check)) {
+      req.body.check = [req.body.check];
     }
     // Split the returned info to get the id of the episode and series of the pack
-    var returnedParts = utilities.splitDeleteToParts(req.body.delete)
+    var returnedParts = utilities.splitDeleteToParts(req.body.check)
     var seriesIds = returnedParts[1];
     var episodeIds = returnedParts[0];
     // Find all the series needed to do removal on
