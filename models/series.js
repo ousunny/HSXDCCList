@@ -5,6 +5,7 @@ var mongoose              = require("mongoose");
 var seriesSchema = new mongoose.Schema({
   name: String,
   bot: String,
+  group: String,
   quality: String,
   current: String,
   tracking: Boolean,

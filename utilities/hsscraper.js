@@ -66,9 +66,9 @@ function searchForSeries(series, callback) {
 
       // Perform different search queries depending on individual or all episodes
       if (series.individual) {
-        const status = await page.open(HS_XDCC_SEARCH + series.name + " - " + series.current + " " + series.quality);
+        const status = await page.open(HS_XDCC_SEARCH + "[" + series.group + "] " + series.name + " - " + series.current + " " + series.quality);
       } else {
-        const status = await page.open(HS_XDCC_SEARCH + series.name + " " + series.quality);
+        const status = await page.open(HS_XDCC_SEARCH + "[" + series.group + "] " + series.name + " " + series.quality);
       }
 
       // Wait for a delay before scrapping for list of episodes
