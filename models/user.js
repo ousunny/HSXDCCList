@@ -10,7 +10,7 @@ var userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Series"
     }]
-});
+}, {usePushEach: true});
 
 userSchema.plugin(passportLocalMongoose);
 

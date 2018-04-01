@@ -20,6 +20,6 @@ var seriesSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Episode"
   }]
-});
+}, {usePushEach: true});
 
 module.exports = mongoose.model("Series", seriesSchema);
