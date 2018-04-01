@@ -32,7 +32,7 @@ router.delete("/delete", middleware.isLoggedIn, function(req, res) {
       seriesIds = [seriesIds];
     }
     // Remove all selected series
-    Series.findByIdAndRemove(seriesIds, function(error) {
+    Series.remove({_id: seriesIds}, function(error) {
       if (error) {
         console.log(error);
       } else {
