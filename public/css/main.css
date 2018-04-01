@@ -22,3 +22,7 @@
 .item:hover {
   background: lightgrey;
 }
+
+input[type="checkbox"] {
+  transform: scale(2);
+}
